@@ -7,7 +7,8 @@
 ]
 'repository':
   'comment':
-    'match': '^(\\s*)#.*$'
+    'begin': '#'
+    'end': '$'
     'name': 'comment.line.number-sign.pyresttest'
   'constant':
     'match': '\\b(?:true|false|null)\\b'
@@ -119,6 +120,9 @@
           {
             'comment': 'the YAML value'
             'include': '#yaml_value'
+          }
+          {
+            'include': '#comment'
           }
         ]
       }
