@@ -1,0 +1,39 @@
+'.source.yaml':
+  'Configuration':
+    'prefix': 'config'
+    'body': """
+      ---
+      - config:
+        - testset: '${1:Test name}'
+        - variable_binds: \{${2:key: value, comma separated}\}
+
+      $3
+    """
+
+  'Test':
+    'prefix': 'test'
+    'body': """
+      - test:
+        - group: '${1:Group name}'
+        - name: '${2:Test name}'
+        - url: ${3:/relative/url}
+        $4
+    """
+
+  'Template':
+    'prefix': 'template'
+    'body': """
+      \{template: ${2:value}\}$2
+    """
+
+  'Extract compare':
+    'prefix': 'compare'
+    'body': """
+      - compare: \{${1:extractor}: "${2:extractor args}", comparator: "${3:function}", expected: ${4:value}\}$5
+    """
+
+  'Extract test':
+    'prefix': 'extract-test'
+    'body': """
+      - extract_test: \{${1:extractor}: "${2:extractor args}", test: "${3:test}"\}$4
+    """

@@ -1,0 +1,21 @@
+{
+  "name": "language-pyresttest",
+  "version": "0.0.0",
+  "description": "Pyresttest language support in Atom",
+  "engines": {
+    "atom": "*",
+    "node": "*"
+  },
+  "homepage": "https://github.com/BastienAr/language-pyresttest",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BastienAr/language-pyresttest.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/BastienAr/language-pyresttest/issues"
+  },
+  "devDependencies": {
+    "coffeelint": "^1.10.1"
+  }
+}
