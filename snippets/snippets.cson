@@ -23,7 +23,7 @@
   'Template':
     'prefix': 'template'
     'body': """
-      \{template: ${2:value}\}$2
+      \{template: ${1:value}\}$2
     """
 
   'Extract compare':
