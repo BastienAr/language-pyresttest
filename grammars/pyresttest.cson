@@ -178,6 +178,7 @@
       { 'include': '#double_quoted_string' }
       { 'include': '#url' }
       { 'include': '#object' }
+      { 'include': '#array' }
     ]
   'value':
     'patterns': [
@@ -217,11 +218,35 @@
       '1':
         'name': 'url.parameter.key.pyresttest'
   'url':
-    'match': '(?:(?:https?:\\/)|(?:\\.+))?(\\/[\\w\\.\\-\\?=\\$\\&]*)+'
-    'name': 'markup.link.pyresttest'
+    'patterns': [
+      { 'include': '#relative-url' },
+      { 'include': '#local-url' },
+      { 'include': '#remote-url' }
+    ]
+  'relative-url':
+    'match': '\\B[\\.\\/]+[\\/\\w\\$\\&\\-=\\?\\.]+\\b'
+    'name': 'markup.link.relative.pyresttest'
+    'captures':
+      '0':
+        'patterns': [
+          { 'include': '#url_parameter_key' },
+          { 'include': '#variable'}
+        ]
+  'local-url':
+    'match': '(?:https?:\\/\\/)?(?:localhost|(?:127\\.0\\.0\\.1))(?:\\:\\d{1,5})?([\\/\\w\\$\\&\\-=\\?\\.]+)'
+    'name': 'markup.link.localhost.pyresttest'
     'captures':
       '1':
         'patterns': [
-          { 'include': '#url_parameter_key' }
+          { 'include': '#url_parameter_key' },
+          { 'include': '#variable'}
+        ]
+  'remote-url':
+    'match': '(?:(?:https?:\\/\\/)|(?:www))(?:(?:[a-z0-9\\.\\-]+\.[a-z]{2,})|(?:\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}))(?:\\:\\d{1,5})?([\\/\\w\\$\\&\\-=\\?\\.]+)'
+    'name': 'markup.link.remote.pyresttest'
+    'captures':
+      '1':
+        'patterns': [
+          { 'include': '#url_parameter_key' },
           { 'include': '#variable'}
         ]
