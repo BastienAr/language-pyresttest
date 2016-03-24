@@ -1,6 +1,6 @@
 {
   "name": "language-pyresttest",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Pyresttest language support in Atom",
   "engines": {
     "atom": "*",
