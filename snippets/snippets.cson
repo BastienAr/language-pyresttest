@@ -37,3 +37,9 @@
     'body': """
       - extract_test: \{${1:extractor}: "${2:extractor args}", test: "${3:test}"\}$4
     """
+
+  'Json schema validator against file':
+    'prefix': 'jsonschem'
+    'body': """
+      - json_schema: \{schema: \{file: '${1:/url/to/file}'\}\}$2
+    """
